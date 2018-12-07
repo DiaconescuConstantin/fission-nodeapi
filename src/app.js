@@ -16,15 +16,7 @@ function getRandomInt(max) {
 app.get('/', (req, res) => {
   res.send({
     success: true,
-    COMPOSE_API_VERSION: process.env.COMPOSE_API_VERSION,
-    COMPOSE_CONVERT_WINDOWS_PATHS: process.env.COMPOSE_CONVERT_WINDOWS_PATHS,
-    COMPOSE_FILE: process.env.COMPOSE_FILE,
-    COMPOSE_HTTP_TIMEOUT: process.env.COMPOSE_HTTP_TIMEOUT,
-    COMPOSE_TLS_VERSION: process.env.COMPOSE_TLS_VERSION,
-    COMPOSE_PROJECT_NAME: process.env.COMPOSE_PROJECT_NAME,
-    DOCKER_CERT_PATH: process.env.DOCKER_CERT_PATH,
-    DOCKER_HOST: process.env.DOCKER_HOST,
-    DOCKER_TLS_VERIFY: process.env.DOCKER_TLS_VERIFY,
+    env: process.env,
   });
 });
 
