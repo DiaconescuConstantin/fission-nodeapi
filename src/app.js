@@ -24,6 +24,15 @@ app.get('/rand', (req, res) => {
   res.send({
     success: true,
     random: getRandomInt(99999),
+    hostname: process.env.HOSTNAME,
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.send({
+    success: true,
+    staus: "running",
+    hostname: process.env.HOSTNAME,
   });
 });
 
