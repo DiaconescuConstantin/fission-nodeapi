@@ -1,0 +1,26 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::6}
+    - REPOTEST=fission-nodeapi-test
+    - REPO=diaconescu/fission-nodeapi
+    - TAG=latest
+
+before_install:
+  - docker build -t $REPOTEST -f Dockerfile.dev .
+
+script:
+  - docker run $REPOTEST yarn lint 
+
+after_success:
+  - docker images
+
+deploy:
+  provider: script
+  script: bash deploy
+  on:
+    branch: master
