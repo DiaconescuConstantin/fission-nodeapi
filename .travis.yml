@@ -14,7 +14,7 @@ before_install:
   - docker build -t $REPOTEST -f Dockerfile.dev .
 
 script:
-  - docker run $REPOTEST yarn lint 
+  - docker run $REPOTEST yarn run coverage 
 
 after_success:
   - docker images
