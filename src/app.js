@@ -16,7 +16,7 @@ function getRandomInt(max) {
 app.get('/', (req, res) => {
   res.send({
     success: true,
-    env: process.env,
+    hostname: process.env.HOSTNAME,
   });
 });
 
